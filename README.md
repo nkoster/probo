@@ -1,6 +1,6 @@
-This is a very simple TEST virus program that runs in Linux.
+This is a very simple EXPERIMENTAL virus program that runs in Linux.
 
-* This is a DANGEROUS experiment - Use only in a secured lab setup!
+This is a DANGEROUS experiment - Use only in a secured lab setup!
 
 #### Bootstrap procedure
 
@@ -28,8 +28,10 @@ This will infect one executable per run, until all files are infected.
 
 * Infected files run like normal. The orginal code will be executed by the virus code
 * Only executables in the current directory are infected
+* Infected programs do no more evil than only infecting other programs
 
 #### To Do
 
 * Use the original file's time-stamp for the infected file
+* Use random file names for the `vir` and `exe` files
 * Add a fixed list of programs that will be attacked
