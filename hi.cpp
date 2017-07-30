@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int main() {
-    cout << "\nHi!\n\n";
+    std::cout << "\nHi!\n\n";
 }
