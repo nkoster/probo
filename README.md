@@ -21,4 +21,5 @@ Start:
 ````
 
 By default, only executables in the current directory are infected.
+
 Imagine what will happen when the default wil be `/bin/`.
