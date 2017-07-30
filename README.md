@@ -18,6 +18,8 @@ Make sure the size of `v_tmp` is `MYSIZE` in the `v.cpp` source. Do another
 g++ -O -Wall -std=c++11 v.cpp -o v_tmp && cat v_tmp hi >v && chmod +x v
 ````
 
+You can also use `make.bash`, which will run above in one chain.
+
 #### Start
 
 Run the virus bootstrap executable in a directory that contains other executables:
