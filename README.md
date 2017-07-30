@@ -33,5 +33,4 @@ This will infect one executable per run, until all files are infected.
 #### To Do
 
 * Use the original file's time-stamp for the infected file
-* Use random file names for the `vir` and `exe` files
 * Add a fixed list of programs that will be attacked
