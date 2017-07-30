@@ -26,11 +26,8 @@ Run the virus bootstrap executable in a directory that contains other executable
 
 This will infect one executable per run, until all files are infected.
 
-Infected files run like normal. The orginal code will be executed by the virus code.
-
-By default, only executables in the current directory are infected.
-
-Imagine what will happen when the default will be `/bin/`, runing as root or with sudo rights.
+* Infected files run like normal. The orginal code will be executed by the virus code
+* By default, only executables in the current directory are infected
 
 #### To Do
 
