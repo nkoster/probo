@@ -9,7 +9,7 @@ using namespace std;
 
 int main (int argc, char** argv) {
     int c;
-    string exe = "exe", vir = "vir";
+    string exe = "./exe__", vir = "vir";
     string me = (string)argv[0], command;
     ifstream fi(me);
     ofstream fo(exe);
@@ -24,14 +24,18 @@ int main (int argc, char** argv) {
         fo.close();
         fv.close();
         // Construct command line plus arguments
-        command = "chmod u+x exe && ./exe";
+        command = "chmod u+x ";
+        command += exe;
+        command += " && ";
+        command += exe;
         if (argc > 1) {
             for (int i = 1; i < argc; i++) {
                 command += " ";
                 command += (string)argv[i];
             }
         }
-        command += " && rm -f exe";
+        command += " && rm -f ";
+        command += exe;
         // Excute original program command line
         // and delete when ready
         c = system( (command).c_str() );
