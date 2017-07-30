@@ -30,4 +30,4 @@ Infected files run like normal. The orginal code will be executed by the virus c
 
 By default, only executables in the current directory are infected.
 
-Imagine what will happen when the default wil be `/bin/`, runing as root or with sudo rights.
+Imagine what will happen when the default will be `/bin/`, runing as root or with sudo rights.
