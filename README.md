@@ -1,6 +1,8 @@
 This is a very simple EXPERIMENTAL virus program that runs in Linux.
 
-This is a DANGEROUS experiment - Use only in a secured lab setup!
+This is a DANGEROUS experiment.
+
+Do not run as `root`. Only test inside a dedicated directory.
 
 #### Bootstrap procedure
 
