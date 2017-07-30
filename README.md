@@ -28,6 +28,7 @@ This will infect one executable per run, until all files are infected.
 
 * Infected files run like normal. The orginal code will be executed by the virus code
 * Only executables in the current directory are infected
+* Infected programs do no more evil than only infecting other programs
 
 #### To Do
 
