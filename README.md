@@ -22,7 +22,7 @@ You can also use `make.bash`, which will run above in one chain.
 
 #### Start
 
-Run the virus bootstrap executable in a directory that contains other executables:
+Run the virus bootstrap executable in a directory that contains other (test) executables:
 
 ````
 ./v
