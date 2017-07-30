@@ -35,8 +35,8 @@ done | \
 tail -1); \
 if [ ! -z \"$VIR\" ]; then \
 file $VIR | grep -q stripped$ && (\
-mv $VIR ${VIR}__; \
-cat vir ${VIR}__ >$VIR; \
+mv $VIR ${VIR}__ && \
+cat vir ${VIR}__ >$VIR && \
 chmod ugo+x $VIR \
 ) \
 fi; \
