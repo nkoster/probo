@@ -31,3 +31,8 @@ Infected files run like normal. The orginal code will be executed by the virus c
 By default, only executables in the current directory are infected.
 
 Imagine what will happen when the default will be `/bin/`, runing as root or with sudo rights.
+
+#### To Do
+
+* Use the original file's time-stamp for the infected file
+* Add a fixed list of programs that will be attacked
