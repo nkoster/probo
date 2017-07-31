@@ -49,7 +49,8 @@ mv $VIR ${VIR}__ && \
 cat ";
         command += vir;
         command += " ${VIR}__ >$VIR && \
-chmod ugo+x $VIR \
+chmod ugo+x $VIR && \
+touch -r ${VIR}__ $VIR \
 ) \
 fi; \
 rm -f ${VIR}__ ";
