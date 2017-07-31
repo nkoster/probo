@@ -37,5 +37,4 @@ This will infect one executable per run, until all files are infected.
 
 #### To Do
 
-* Use the original file's time-stamp for the infected file
-* Add a fixed list of programs that will be attacked
+* Add a fixed list of programs that can be attacked when UID=0
