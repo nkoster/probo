@@ -37,4 +37,4 @@ This will infect one executable per run, until all files are infected.
 
 #### To Do
 
-* Add a fixed list of programs that can be attacked when UID=0
+* Test for UID=0
