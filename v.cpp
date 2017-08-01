@@ -22,9 +22,7 @@ int main (int argc, char** argv) {
         for (int i = 0; i < MYSIZE; i++) fv << (char) fi.get();
         fi.seekg(MYSIZE, fi.beg);
         while ((c = fi.get()) != -1) fo << (char) c;
-        fi.close();
-        fo.close();
-        fv.close();
+        fi.close(); fo.close(); fv.close();
         command = "/bin/chmod ug+rwx ";
         command += exe;
         c = system( command.c_str() );
