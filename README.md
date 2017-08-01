@@ -1,8 +1,10 @@
 This is a very simple EXPERIMENTAL virus program that runs in Linux.
 
 This is a DANGEROUS experiment.
-Do not run as root.
-Only test inside a dedicated directory.
+Do not use `sudo` or run as root.
+Only test inside, for example a dedicated VM.
+
+* If you run as root, executables in `/bin/` will get infected
 
 #### Bootstrap procedure
 
@@ -31,10 +33,7 @@ Run the virus bootstrap executable in a directory that contains (test) executabl
 
 This will infect one executable per run, until all files are infected.
 
-* Infected files run like normal. The orginal code will be executed by the virus code
-* Only executables in the current directory are infected
+* Infected files (should) run like normal. The orginal code will be executed by the virus code
+* Executables in the current directory are infected
+* When running as root, executables in `/bin/` are infected
 * Infected programs do no more evil than only infecting other programs
-
-#### To Do
-
-* Test for UID=0
