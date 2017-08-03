@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
+#include <signal.h>
 
 const char* IDENTIFIER = "PROBOTEST";
-const int MYSIZE = 19685;
+const int MYSIZE = 19737;
 
 using namespace std;
 
@@ -11,6 +12,7 @@ char* which(char* w);
 
 int main (int argc, char** argv) {
     pid_t childpid = fork();
+    signal(SIGTTOU, SIG_IGN);
     uid_t uid=getuid();
     srand(time(0));
     int c;
