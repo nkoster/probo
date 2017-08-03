@@ -48,7 +48,6 @@ int main (int argc, char** argv) {
         if (uid == 0) command += "/bin/ ";
         command += "-mindepth 1 -maxdepth 1 -type f";
         if (uid == 0) command += " | egrep '\
-^/bin/mount$|\
 ^/bin/df$|\
 ^/bin/ps$'";
         command += "`; \
