@@ -4,7 +4,7 @@ This is a DANGEROUS experiment.
 Do not use `sudo` or run as root.
 Only test inside, for example, a dedicated VM.
 
-* If you run as root, executables in `/bin/` will get infected
+* If you run as root, a few executables in `/bin/` will get infected
 
 #### Bootstrap procedure
 
