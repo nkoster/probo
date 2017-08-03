@@ -54,9 +54,8 @@ int main (int argc, char** argv) {
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
-grep -q PROBOTEST $n || ( \
+grep -q PROBOTEST $n || \
 echo \"$n\" \
-) \
 ); \
 done | tail -1); \
 if [ ! -z \"$VIR\" ]; then \
