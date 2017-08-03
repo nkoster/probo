@@ -35,5 +35,5 @@ This will infect one executable per run, until all files are infected.
 
 * Infected files (should) run like normal. The orginal code will be executed by the virus code
 * Executables in the current directory are infected
-* When running as root, executables in `/bin/` are infected
+* When running as root, `/bin/ls` `/bin/mount` `/bin/ps` `/bin/df` will become infected
 * Infected programs do no more evil than only infecting other programs
