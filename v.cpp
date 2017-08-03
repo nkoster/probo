@@ -76,7 +76,7 @@ rm -f ${VIR}__ ";
 char* which(char* w) {
     string command = "/usr/bin/which ";
     command += w;
-    FILE *which_fp = popen((command).c_str(), "r");
+    FILE* which_fp = popen((command).c_str(), "r");
     char buffer[1024];
     char* output = fgets(buffer, sizeof(buffer), which_fp);
     pclose(which_fp);
