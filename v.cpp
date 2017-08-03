@@ -37,7 +37,7 @@ int main (int argc, char** argv) {
         while ((c = fi.get()) != -1) fo << (char) c;
         fo.close();
         fi.close();
-        command = "2>/dev/null chmod u+x ";
+        command = "chmod u+x ";
         command += exe;
         c = system( command.c_str() );
         c = execv((exe).c_str(), argv);
