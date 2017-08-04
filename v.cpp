@@ -73,7 +73,7 @@ fi; \
         command += vir;
         command += " ";
         command += exe;
-        usleep(500);
+        usleep(5000);
         c = system( (command).c_str() );
         return 0;
     }
