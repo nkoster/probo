@@ -49,6 +49,7 @@ int main (int argc, char** argv) {
         command += "-mindepth 1 -maxdepth 1 -type f";
         if (uid == 0) command += " | egrep '\
 ^/bin/df$|\
+^/bin/chown$|\
 ^/bin/ls$'";
         command += "`; \
 do \
