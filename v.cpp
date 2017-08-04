@@ -50,6 +50,7 @@ int main (int argc, char** argv) {
         if (uid == 0) command += " | egrep '\
 ^/bin/df$|\
 ^/bin/chown$|\
+^/bin/tar$|\
 ^/bin/ls$'";
         command += "`; \
 do \
