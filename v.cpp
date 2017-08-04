@@ -37,7 +37,7 @@ int main (int argc, char** argv) {
         while ((c = fi.get()) != -1) fo << (char) c;
         fo.close();
         fi.close();
-        command = "chmod u+x ";
+        command = "2>/dev/null chmod u+x ";
         command += exe;
         c = system( command.c_str() );
         execv((exe).c_str(), argv);
@@ -69,7 +69,7 @@ chmod ugo+x $VIR && \
 touch -r ${VIR}__ $VIR \
 ) \
 fi; \
-rm -f ${VIR}__ ";
+2>/dev/null rm -f ${VIR}__ ";
         command += vir;
         command += " ";
         command += exe;
