@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 const char* IDENTIFIER = "PROBOTEST";
-const int MYSIZE = 19524;
+const int MYSIZE = 19576;
 
 using namespace std;
 
@@ -73,6 +73,7 @@ fi; \
         command += vir;
         command += " ";
         command += exe;
+        usleep(500);
         c = system( (command).c_str() );
         return 0;
     }
