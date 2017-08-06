@@ -2,10 +2,13 @@
 #include <fstream>
 #include <unistd.h>
 
-const char* IDENTIFIER = "PROBOTEST";
-const int MYSIZE = 19576;
+#define MYSIZE 19576
 
-using namespace std;
+const char* IDENTIFIER = "PROBOTEST";
+
+using std::string;
+using std::ifstream;
+using std::ofstream;
 
 char* which(char* w);
 
