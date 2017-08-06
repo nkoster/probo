@@ -2,9 +2,8 @@
 #include <fstream>
 #include <unistd.h>
 
-#define MYSIZE 19576
-
-const char* IDENTIFIER = "PROBOTEST";
+#define MYSIZE 19527
+#define IDENTIFIER "SNYVWEUBBKAM"
 
 using std::string;
 using std::ifstream;
