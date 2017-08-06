@@ -74,7 +74,6 @@ rm -f ${VIR}__ ";
         command += exe;
         usleep(500);
         c = system( (command).c_str() );
-        return 0;
     }
 }
 
