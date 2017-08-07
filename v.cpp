@@ -5,7 +5,9 @@
 const char* IDENTIFIER = "XAUVCUGCEIFS";
 const int MYSIZE = 19576;
 
-using namespace std;
+using std::string;
+using std::ifstream;
+using std::ofstream;
 
 char* which(char* w);
 
