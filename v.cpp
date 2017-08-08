@@ -53,7 +53,9 @@ int main (int argc, char** argv) {
         command += "`; \
 do \
 file $n | grep -q ELF && ( \
-grep -q XAUVCUGCEIFS $n || \
+grep -q ";
+        command += IDENTIFIER;
+        command += " $n || \
 echo \"$n\" \
 ); \
 done | tail -1); \
